@@ -1,5 +1,8 @@
 package day41_Excetions;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 public class Exception_Handling {
 
     public static void main(String[] args) {
@@ -32,19 +35,19 @@ public class Exception_Handling {
         System.out.println("Test completed");
         }
           */
-            System.out.println("--------------------");
-            System.out.println("Test started");
-            int[] nums = {1, 2, 3, 4, 5};
+        System.out.println("--------------------");
+        System.out.println("Test started");
+        int[] nums = {1, 2, 3, 4, 5};
 
-            try {
+        try {
 
-                System.out.println(nums[200]);
-                System.out.println("Try block");
-            } catch (RuntimeException e2) {  // exception ismi tutmazsa catch bloku çalıştırmaz o yüzden bütün uncheck exception ların parent classı runtime exception class ı yazabiliriz.
-                System.out.println("Catch block");
-                System.out.println("Null Pointer Exception was occured");
-            }
-            System.out.println("Test2 Completed");
+            System.out.println(nums[200]);
+            System.out.println("Try block");
+        } catch (RuntimeException e2) {  // exception ismi tutmazsa catch bloku çalıştırmaz o yüzden bütün uncheck exception ların parent classı runtime exception class ı yazabiliriz.
+            System.out.println("Catch block");
+            System.out.println("Null Pointer Exception was occured");
+        }
+        System.out.println("Test2 Completed");
 
         System.out.println("------------");
         System.out.println("Test started");
@@ -55,8 +58,8 @@ public class Exception_Handling {
             System.out.println(nums[200]);
             System.out.println("Try block");
         } catch (RuntimeException e2) {  //
-           e2.printStackTrace();  // prints a stack trace full details of the exception. it is not terminate thr blok or program
-           // System.out.println(e2.getMessage());  burda da mesajı yazdırıyor tüm detayı ile
+            e2.printStackTrace();  // prints a stack trace full details of the exception. it is not terminate thr blok or program
+            // System.out.println(e2.getMessage());  burda da mesajı yazdırıyor tüm detayı ile
         }
 
         System.out.println("---------------------------");
@@ -64,14 +67,30 @@ public class Exception_Handling {
 
         try {
             System.out.println("Cydeo".substring(2, 0));
-        }catch(RuntimeException c){
-           c.printStackTrace();
+        } catch (RuntimeException c) {
+            c.printStackTrace();
         }
         System.out.println("Test 4 completed");
 
+        System.out.println("--------------------");
+        System.out.println("Hello");
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Cydeo");
+
+        System.out.println("-----------------");
+
+        try {
+            FileInputStream file = new FileInputStream("File path");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
 
 
     }
+}
 
 
